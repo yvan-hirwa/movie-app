@@ -1,20 +1,18 @@
-const Card = ({ title , rating }) =>{
+const Card = ({ title  }) =>{
   return (
-    <div>
+    <div className="card">
       <h2>{title}</h2>
-      <h4>{rating}</h4>
     </div>
   )
 }
 
 const App = () => {
   return (
-  <div>
-    <h2>Functional Arrow Component</h2>
+  <div className="card-container">
 
-    <Card title = "Game of Thrones" rating={5}/>
+    <Card title = "Game of Thrones" />
     <Card title = "Breaking Bad"/>
-    <Card title = "Arrow"/>
+    <Card title = "Arrow" />
     <Card title = "Pretty Woman"/>
 
     </div>
