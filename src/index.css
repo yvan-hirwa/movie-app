@@ -36,3 +36,12 @@ h2, h4{
   justify-content: center;
   align-items: center;
 }
+button{
+  background-color: transparent;
+  color: #151515;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
