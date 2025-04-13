@@ -18,3 +18,4 @@ const Search = ({searchTerm, setsearchTerm}) => {
 }
 
 export default Search
+
