@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Search from "./components/search"
 import Spinner from "./components/spinner";
 import MovieCard from "./components/MovieCard";
@@ -21,12 +21,14 @@ const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchmovies = async () => {
+  const fetchmovies = async (query= '') => {
     setLoading(true);
     setErrorMessage('');
 
     try {
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=populariy.desc`
+      const endpoint = query 
+      ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&sort_by=popularity.desc`
+      :`${API_BASE_URL}/discover/movie?sort_by=popularity.desc`
 
       const response = await fetch(endpoint, API_OPTIONS);
 
@@ -52,8 +54,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchmovies();
-  }, []);
+    fetchmovies(searchTerm);
+  }, [searchTerm]);
 
   return (
     <main>
